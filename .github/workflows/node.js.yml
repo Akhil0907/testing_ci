@@ -1,48 +1,15 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: example-basic
+name: End-to-end tests
 on: [push]
 jobs:
-  basic:
-    runs-on: ubuntu-latest
+  cypress-run:
+    runs-on: ubuntu-16.04
     steps:
       - name: Checkout
         uses: actions/checkout@v1
-
-      - name: Cypress tests
-        # normally you would write
-        # uses: cypress-io/github-action@v2
-        uses: ./
-        # the parameters below are only necessary
-        # because we are running these examples in a monorepo
-        with:
-          working-directory: examples/basic
-          # just for full picture after installing Cypress
-          # print information about detected browsers, etc
-          # see https://on.cypress.io/command-line#cypress-info
-          build: npx cypress info
-
-  basic-on-windows:
-    runs-on: windows-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v1
-
-      - name: Cypress tests
-        uses: ./
-        with:
-          working-directory: examples/basic
-          build: npx cypress info
-
-  basic-on-mac:
-    runs-on: macos-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v1
-
-      - name: Cypress tests
-        uses: ./
-        with:
-          working-directory: examples/basic
-          build: npx cypress info
+      # Install NPM dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: npx cypress run
+        uses: cypress-io/github-action@v2
