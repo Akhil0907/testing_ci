@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "cypress e2e and smoke test scripts",
   "dependencies": {
-    "cypress": "^4.5.0",
+    "cypress": "4.6.0",
   },
   
   "scripts": {
