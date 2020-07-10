@@ -4,6 +4,7 @@
   "description": "basic example how to run Cypress tests",
   "main": "index.js",
   "scripts": {
+    
     "test": "npx cypress run",
     "test1": "node_modules\\.bin\\cypress run",
     "headTest": "npm run test1 -- --headed",
