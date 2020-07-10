@@ -1,20 +1,15 @@
 {
-  "name": "cypress-automation",
+  "name": "example-basic",
   "version": "1.0.0",
-  "description": "cypress e2e and smoke test scripts",
-  "devDependencies": {
-    "cypress": "4.8.0",
-  },
-  
+  "description": "basic example how to run Cypress tests",
+  "main": "index.js",
   "scripts": {
-    "test": "cypress run",
-    "headTest": "npm run test -- --headed",
-    "chromeTest": "npm run test -- --browser chrome",
-    "smokeTest": "npm run test -- --spec cypress/integration/Smoke/**/*",
-    "acceptanceTest": "npm run test -- --spec cypress/integration/Acceptance/**/*",
-    "FunctionalTest": "npm run test -- --spec cypress/integration/Functional/**/*"
+    "test": "cypress run"
   },
-  
-  "author": "akhil",
+  "author": "",
   "license": "ISC",
+  "private": true,
+  "devDependencies": {
+    "cypress": "4.8.0"
+  }
 }
