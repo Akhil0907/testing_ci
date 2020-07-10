@@ -19,9 +19,6 @@
     "type": "git",
     "url": "git+https://github.com/Akhil0907/testrepo.git"
   },
-  "keywords": [
-    "cypress"
-  ],
   "author": "akhil",
   "license": "ISC",
   "bugs": {
