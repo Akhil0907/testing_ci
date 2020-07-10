@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "basic example how to run Cypress tests",
   "main": "index.js",
-  "test": "cypress run"
+  "scripts": {
+    "test": "cypress run"
   },
   "author": "",
   "license": "ISC",
