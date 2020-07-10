@@ -1,1 +1,1 @@
-cypress automation
+cypress automation project with github actions
