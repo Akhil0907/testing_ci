@@ -4,7 +4,7 @@
   "description": "basic example how to run Cypress tests",
   "main": "index.js",
   "scripts": {
-    "test": "npx cypress run"
+    "test": "cypress run"
   },
   "author": "",
   "license": "ISC",
