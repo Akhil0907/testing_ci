@@ -1,16 +1,8 @@
-// <reference types="Cypress" />
 
-
-
-//T713 create a detailed four block announcement campaign
-
-describe('Create an announcement campaign', () => {
+describe('flikpart', () => {
     
 
-    
- 
-
-    it('Smoke:-Create a detailed four block announcement campaign ', () => {
+    it('Smoke:-shopping ', () => {
         
       cy.visit('flikpart.com')
         })
