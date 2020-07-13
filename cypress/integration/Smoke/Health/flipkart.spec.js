@@ -4,7 +4,7 @@ describe('flikpart', () => {
 
     it('Smoke:-shopping ', () => {
         
-      cy.visit('flikpart.com')
+      cy.visit('https://www.flipkart.com/')
         })
     
     })
