@@ -21,12 +21,13 @@ jobs:
         record: true
         parallel: true
     - run: npm install
-    - run: npm run build --if-present    
-          
-        - name: Run http server with the app in the background
-        run: |
-          npm run start:ci &
-      - name: Run tests with Knapsack Pro
+    - run: npm run build --if-present  
+        
+    - name: Run http server with the app in the background
+      run: |
+         npm run start:ci &
+             
+     - name: Run tests with Knapsack Pro
         env:
           KNAPSACK_PRO_TEST_SUITE_TOKEN_CYPRESS: ${{ secrets.KNAPSACK_PRO_TEST_SUITE_TOKEN_CYPRESS }}
           KNAPSACK_PRO_CI_NODE_TOTAL: ${{ matrix.ci_node_total }}
