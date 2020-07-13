@@ -1,10 +1,11 @@
-- name: Install Cypress and dependencies 📦
+ name: Install Cypress and dependencies 
+ steps:
   uses: cypress-io/github-action@v1
   with:
     runTests: false
 
 # quickly run just the changed specs to fail fast
-- name: Maybe run just the changed Cypress tests ⏱
+ name: Maybe run just the changed Cypress tests 
   run: |
     CHANGED_SPECS=$(git diff --name-only origin/${{ github.base_ref }} origin/${{ github.head_ref }} -- cypress/integration)
     if [ -n "$CHANGED_SPECS" ]; then
