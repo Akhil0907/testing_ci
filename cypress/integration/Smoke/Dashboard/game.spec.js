@@ -6,7 +6,7 @@ describe('gamedebate', () => {
   
     it('Smoke:-gameon ', () => {
         
-       cy.visit('gamedebate.com')
+       cy.visit('https://www.game-debate.com/')
         })
     
     })
