@@ -1,10 +1,6 @@
 name: Node.js CI
 
-on:
-  push:
-    branches:
-      - testing_ci
-      - master
+on: [push]
 
 jobs:
   build:
@@ -14,7 +10,7 @@ jobs:
     strategy:
       matrix:
         node-version: [12.x]
-        machines: [1, 2, 3]
+        machines: [1, 2]
         
     steps:
     - uses: actions/checkout@v2
@@ -22,6 +18,9 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+        config: pageLoadTimeout=100000
+        browser: chrome
+        headless: true
         record: true
         parallel: true
         parallelism: 4
@@ -29,6 +28,10 @@ jobs:
     - run: npm install
     - run: npm run build --if-present 
     - run: npm run test
+      
+      env:
+          # pass GitHub token to allow accurately detecting a build vs a re-run build
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
         
 
