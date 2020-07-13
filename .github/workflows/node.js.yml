@@ -11,6 +11,8 @@ jobs:
       matrix:
         node-version: [12.x]
         containers: [1, 2]
+        ci_node_total: [3]
+        ci_node_index: [0,1,2]
     steps:
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
