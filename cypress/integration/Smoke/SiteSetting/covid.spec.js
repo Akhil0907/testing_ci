@@ -1,14 +1,12 @@
 // <reference types="Cypress" />
 
-import AnnouncementCampaign from '../../../../pageObjects/Campaigns/CreateCampaigns/create_announcement_campaigns'
 
-//T713 create a detailed four block announcement campaign
 
-describe('Create an announcement campaign', () => {
+describe('Corona', () => {
     
    
 
-    it('Smoke:-Create a detailed four block announcement campaign ', () => {
+    it('Smoke:-Covid', () => {
         
      cy.visit('https://www.worldometers.info/coronavirus/country/india/')
   
