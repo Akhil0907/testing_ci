@@ -2,7 +2,7 @@
 
 
 
-describe('Create an announcement campaign', () => {
+describe.skip('Create an announcement campaign', () => {
     
    
     it('Smoke:-amd ', () => {
