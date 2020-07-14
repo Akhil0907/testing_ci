@@ -16,7 +16,7 @@
   "license": "ISC",
   "private": true,
   "devDependencies": {
-    "cypress": "^4.8.0"
+    "cypress": "4.8.0"
   },
   "dependencies": {
     "@cypress/commit-info": "^2.2.0"
