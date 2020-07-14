@@ -10,7 +10,7 @@
     "chromeTest": "npm run test1 -- --browser chrome",
     "smokeTest": "npm run test1 -- --spec cypress/integration/Smoke/**/*",
     "acceptanceTest": "npm run test1 -- --spec cypress/integration/Acceptance/**/*",
-    "FunctionalTest": "npm run test1 -- --spec cypress/integration/Functional/**/*",
+    "FunctionalTest": "npm run test1 -- --spec cypress/integration/Functional/**/*"
 
   },
   "author": "",
