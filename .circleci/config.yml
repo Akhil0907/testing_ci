@@ -16,8 +16,7 @@ jobs:
           keys:
             - v2-deps-{{ .Branch }}-{{ checksum "package-lock.json" }}
             - v2-deps-{{ .Branch }}-
-            - v2-deps-
-      -run: npm cache clean --force      
+            - v2-deps- 
       - run: npm ci
       - save_cache:
           key: v2-deps-{{ .Branch }}-{{ checksum "package-lock.json" }}
