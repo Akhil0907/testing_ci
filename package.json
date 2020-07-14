@@ -11,7 +11,7 @@
     "smokeTest": "npm run test1 -- --spec cypress/integration/Smoke/**/*",
     "acceptanceTest": "npm run test1 -- --spec cypress/integration/Acceptance/**/*",
     "FunctionalTest": "npm run test1 -- --spec cypress/integration/Functional/**/*",
-    "tslint": "tslint -p tsconfig.json -t codeFrame"
+
   },
   "author": "",
   "license": "ISC",
