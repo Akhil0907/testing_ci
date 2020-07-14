@@ -5,7 +5,7 @@ jobs:
     - image: cypress/base:12.14.0
     record: true
     parallel: true
-    parallelism: 3
+    parallelism: 4
     steps:
     - checkout
     - restore_cache:
@@ -27,7 +27,7 @@ jobs:
         at: ~/
     - run:
         name: Run Cypress tests
-        command: 'npx cypress run --record --parallel'
+        command: 'npx cypress run --parallel --record --key ebfde98d-2fc7-4d17-b2e9-e18e66ffd7f3'
 workflows:
   build:
     jobs:
