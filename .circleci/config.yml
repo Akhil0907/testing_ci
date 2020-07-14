@@ -1,9 +1,14 @@
 version: 2.1
-jobs:
+orbs:
+  cypress: cypress-io/cypress@1
+workflows:
   build:
-    docker:
-      - image: 'circleci/node:latest'
-    steps:
-      - checkout
-      - run: npm install
-      - run: npm run test
+    jobs:
+      - cypress/install
+      - cypress/run:
+          requires:
+            - cypress/install
+          record: true
+          parallel: true
+          parallelism: 2
+          group: 2 machines
