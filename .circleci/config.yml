@@ -11,7 +11,7 @@ workflows:
     docker:
       - image: cypress/base:10
     # tells CircleCI to execute this job on 4 machines simultaneously
-    parallelism: 4
+    parallelism: 1
     steps:
       - checkout
       # note: omitting caching for brevity
