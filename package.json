@@ -11,12 +11,14 @@
     "smokeTest": "npm run test1 -- --spec cypress/integration/Smoke/**/*",
     "acceptanceTest": "npm run test1 -- --spec cypress/integration/Acceptance/**/*",
     "FunctionalTest": "npm run test1 -- --spec cypress/integration/Functional/**/*"
-
   },
   "author": "",
   "license": "ISC",
   "private": true,
   "devDependencies": {
-    "cypress": "4.8.0"
+    "cypress": "^4.8.0"
+  },
+  "dependencies": {
+    "@cypress/commit-info": "^2.2.0"
   }
 }
