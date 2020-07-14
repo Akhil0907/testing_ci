@@ -1,14 +1,23 @@
-version: 2.1
-orbs:
-  cypress: cypress-io/cypress@1
-workflows:
+version: 2
+jobs:
   build:
-    jobs:
-      - cypress/install
-      - cypress/run:
-          requires:
-            - cypress/install
-          record: true
-          parallel: true
-          parallelism: 2
-          group: 2 machines
+    docker:
+      - image: circleci/node:12
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+
+      - run: yarn install
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+      - run: yarn test
