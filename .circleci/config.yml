@@ -8,11 +8,19 @@ workflows:
       - cypress/install:
           run: 'npm install'
           build: 'npm run build'  # run a custom app build step
+       # run on 2 machines using Chrome browser
       - cypress/run:
+          name: '2 machines using Chrome'
+          # job will use workspace with code and dependencies
+          # installed by the "install" job
           requires:
-            - cypress/install
-          record: true        # record results on Cypress Dashboard
-          parallel: true      # split all specs across machines
-          parallelism: 4      # use 4 CircleCI machines to finish quickly
-          group: 'all tests'  # name this group "all tests" on the dashboard
-          start: 'npm start'  # start server before running tests
+            - Linux install
+          # use executor with Chrome installed
+          executor: cypress/browsers-chrome76
+          # use browser "chrome" for running tests
+          browser: chrome
+          record: true
+          parallel: true
+          parallelism: 2
+          group: '2x-chrome on CircleCI'
+          start: 'npm run start:ci'
