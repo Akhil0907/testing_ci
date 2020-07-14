@@ -1,5 +1,5 @@
 
-describe('goole', () => {
+describe.skip('google', () => {
     
     it('Smoke:-google', () => {
     
