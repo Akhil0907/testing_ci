@@ -33,7 +33,8 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm install
     - run: npm run build --if-present
-    - run: npm run test   
+    - run: npm run test --parallel --record --key ebfde98d-2fc7-4d17-b2e9-e18e66ffd7f3'
+
       env:
           # pass the Dashboard record key as an environment variable
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
