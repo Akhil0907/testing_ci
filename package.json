@@ -13,7 +13,6 @@
     "acceptanceTest": "npm run test1 -- --spec cypress/integration/Acceptance/**/*",
     "FunctionalTest": "npm run test1 -- --spec cypress/integration/Functional/**/*"
   },
-  "author": "",
   "license": "ISC",
   "private": true,
   "devDependencies": {
