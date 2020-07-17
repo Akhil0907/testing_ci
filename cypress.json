@@ -3,5 +3,6 @@
   "pageLoadTimeout": 30000,
   "requestTimeout": 30000,
   "responseTimeout": 30000,
-  "projectId": "hbzeme"
+  "projectId": "hbzeme",
+   "baseUrl": "https://qa.useriq.com/users/sign_in"
 }
