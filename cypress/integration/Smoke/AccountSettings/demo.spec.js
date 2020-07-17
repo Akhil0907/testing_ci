@@ -12,7 +12,7 @@
         cy.getCookies().should('be.empty') 
  
         //visit the baseurl configured in settings
-        cy.visit('https://app.useriq.com/')
+        cy.visit('/')
         
         //login with email and password stored in settings
         cy.get('#user_email').should('not.be.hidden').type("akhil.manjunath@useriq.com",{log:false})
