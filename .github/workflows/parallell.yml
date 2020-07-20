@@ -3,17 +3,18 @@ name: Parallel Cypress Tests
 on: [push]
 
 jobs:
-  test:
-    name: Cypress run
+   build_and_deploy:
     runs-on: ubuntu-latest
-    strategy:
+    
+    steps:
+    - name: Cypress run
+      strategy:
       fail-fast: false
       matrix:
         ci_node_total: [3]
         ci_node_index: [0, 1, 2]
 
-    steps:
- 
+    - name: run test   
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
