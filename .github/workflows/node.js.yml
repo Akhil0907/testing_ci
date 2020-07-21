@@ -8,6 +8,7 @@ jobs:
 
     steps: 
     - name: Cypress run
+    - uses: actions/checkout@v2 
       runs-on: ubuntu-latest
       strategy:
       fail-fast: false
