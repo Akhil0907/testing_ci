@@ -3,21 +3,24 @@ name: Parallel Cypress Tests
 on: [push]
 
 jobs:
-  test:
-    name: Cypress run
+  build_and_deploy:
     runs-on: ubuntu-latest
-    strategy:
+
+    steps:
+    - name: Cypress run
+      strategy:
       fail-fast: false
       matrix:
         ci_node_total: [4]
         ci_node_index: [0, 1, 2, 3]
-
-    steps:
  
+    - name: checkout test 
     - uses: actions/checkout@v2
       with:
         record: true
         parallel: true
         group: 'test qa'
+        
+    - name: run test    
     - run: npm install
     - run: npx cypress run  --parallel --record --key ebfde98d-2fc7-4d17-b2e9-e18e66ffd7f3
