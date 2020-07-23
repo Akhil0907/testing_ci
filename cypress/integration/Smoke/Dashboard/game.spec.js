@@ -1,6 +1,6 @@
 
 
-describe.skip('gamedebate', () => {
+describe('gamedebate', () => {
     
 
   
