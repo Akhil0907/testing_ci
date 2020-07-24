@@ -22,6 +22,7 @@ jobs:
      - uses: actions/checkout@v2
      - name: Use Node.js ${{ matrix.node-version }}
        uses: actions/setup-node@v1
+       if: ${{ failure() }} 
        with:
         record: true
         parallel: true
@@ -29,6 +30,4 @@ jobs:
      - run: npm install
      - run: npm run build --if-present
      - run: npx cypress run --config baseUrl=https://"${BRANCH_NAME}".com --parallel --record --key ebfde98d-2fc7-4d17-b2e9-e18e66ffd7f3
-     - name: notification
-     - uses: actions/checkout@v2  
-       if: ${{ failure() }} 
+     
