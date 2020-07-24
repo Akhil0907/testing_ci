@@ -8,7 +8,7 @@ describe('gamedebate', () => {
         
        cy.visit('/')
         
-        cy.contains('Products').should('be.visible')
+        cy.contains('tunne').should('be.visible')
         })
     
     })
