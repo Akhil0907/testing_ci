@@ -33,3 +33,5 @@ jobs:
      
      - name: notification 
      - uses: actions/checkout@v2  
+       continue-on-error: true 
+     - run: npm install  
