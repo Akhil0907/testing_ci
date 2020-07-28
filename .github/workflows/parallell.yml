@@ -23,4 +23,4 @@ jobs:
         group: 'test qa'
     - run: npm install
     - run: npm run build --if-present
-    - run: npx cypress run --record --parallel
+    - run: npx cypress run  --parallel
