@@ -19,4 +19,4 @@ jobs:
       uses: actions/setup-node@v1
     - run: npm install
     - run: npm run build --if-present
-    - run: npx cypress run --parallel   
+    - run: npx cypress run --parallel --ci-build-id "$GITHUB_WORKFLOW-$GITHUB_SHA" 
