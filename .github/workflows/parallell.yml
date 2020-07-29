@@ -22,5 +22,4 @@ jobs:
         group: 'test qa'
     - run: npm install
     - run: npm run build --if-present
-    - run: npm run start:ci &
-    - run: npx cypress run cy:run -- --record --parallel 
+    - run: npx cypress run --parallel --record --key ebfde98d-2fc7-4d17-b2e9-e18e66ffd7f3 
