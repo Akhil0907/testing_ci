@@ -19,6 +19,7 @@ jobs:
       uses: actions/setup-node@v1
       with:
         parallel: true
+        record: false
         group: 'test qa'
     - run: npm install
     - run: npm run build --if-present
