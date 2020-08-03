@@ -27,7 +27,9 @@ jobs:
         at: ~/
     - run:
         name: Run Cypress tests
-        command: 'npx cypress run --parallel '
+        command:  - npm ci
+      # load balance all tests across 4 CI machines
+                  - $(npm bin)/cypress run --parallel
 workflows:
   build:
     jobs:
