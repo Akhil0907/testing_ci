@@ -48,4 +48,3 @@ jobs:
           KNAPSACK_PRO_FIXED_QUEUE_SPLIT: true
         run: |
           $(npm bin)/knapsack-pro-cypress
-          $ mocha --reporter @cypress/mocha-teamcity-reporter test
