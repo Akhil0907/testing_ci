@@ -31,7 +31,8 @@ jobs:
         run: |
           npm install --save-dev @knapsack-pro/cypress
           npm install
-          npm run build --if-present
+          npm run build 
+          npm install --save-dev mochawesome mochawesome-merge mochawesome-report-generator
 
       - name: Run http server with the app in the background
         run: |
