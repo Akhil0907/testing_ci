@@ -27,9 +27,4 @@ jobs:
         at: ~/
     - run:
         name: Run Cypress tests
-        command: 'npx cypress run --parallel --record --key ebfde98d-2fc7-4d17-b2e9-e18e66ffd7f3'
-workflows:
-  build:
-    jobs:
-    - cypress/run
-  version: 2
+        command:  $(npm bin)/cypress run --parallel
