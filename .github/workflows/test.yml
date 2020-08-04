@@ -1,0 +1,19 @@
+name: CI
+
+on: [push]
+
+jobs:
+  tslint:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        job: [0, 1, 2, 3, 4]
+    steps:
+      - uses: actions/checkout@v1
+      - run: |
+          npm ci
+          find . -name '*.ts' -not -name '*.d.ts' -not -path './node_modules/*' | sort | \
+            awk "NR % $NUM_JOBS == $JOB" | xargs npm run tslint --
+        env:
+          NUM_JOBS: 5
+          JOB: ${{ matrix.job }}
