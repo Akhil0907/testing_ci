@@ -4,7 +4,6 @@
   "requestTimeout": 30000,
   "responseTimeout": 30000,
   "videoUploadOnPasses":false,
-  "reporter" : "mochawesome",
   "projectId": "hbzeme",
    "baseUrl": "https://qa.useriq.com/users/sign_in"
 }
