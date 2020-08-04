@@ -25,7 +25,7 @@ jobs:
         at: ~/
     - run:
         name: Run Cypress tests
-        command:  npm install && $(npm bin)/cypress run --parallel
+        command:  npm install && $(npm bin)/cypress run
 workflows:
   build:
     jobs:
