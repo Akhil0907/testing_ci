@@ -4,6 +4,8 @@ jobs:
     docker:
     - image: cypress/base:12.14.0
     parallelism: 4
+    record: true
+    parallel: true
     steps:
     - checkout
     - restore_cache:
@@ -25,7 +27,7 @@ jobs:
         at: ~/
     - run:
         name: Run Cypress tests
-        command:  npm install && $(npm bin)/cypress run
+        command:  npm install && run-p --race cypress run --record --parallel
 workflows:
   build:
     jobs:
