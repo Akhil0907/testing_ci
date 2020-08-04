@@ -36,6 +36,12 @@ jobs:
       - name: Run http server with the app in the background
         run: |
           npm run start:ci &
+          
+      - name: Extract branch name
+        shell: bash
+        run: echo "::set-env name=BRANCH_NAME::$(echo ${GITHUB_REF#refs/heads/} | sed "s/^feature\/\(.*\)$/\1/g" | tr '[:upper:]' '[:lower:]' |  sed -E "s/\///g" | sed -E "s/_//g")"  
+      - name: Test
+        run: echo "${BRANCH_NAME}"      
 
       - name: Run tests with Knapsack Pro
         env:
