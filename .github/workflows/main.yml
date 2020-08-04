@@ -32,7 +32,6 @@ jobs:
           npm install --save-dev @knapsack-pro/cypress
           npm install
           npm run build --if-present
-          npm install --save-dev @cypress/mocha-teamcity-reporter
 
       - name: Run http server with the app in the background
         run: |
@@ -47,4 +46,4 @@ jobs:
           # that were consumed from Queue in the very first CI build run
           KNAPSACK_PRO_FIXED_QUEUE_SPLIT: true
         run: |
-          $(npm bin)/knapsack-pro-cypress
+          $(npm bin)/knapsack-pro-cypress --config baseUrl=https://oracle.com
