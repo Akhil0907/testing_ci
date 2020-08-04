@@ -12,8 +12,7 @@ jobs:
       - uses: actions/checkout@v1
       - run: |
           npm install
-          find . -name '*.ts' -not -name '*.d.ts' -not -path './node_modules/*' | sort | \
-            awk "NR % $NUM_JOBS == $JOB" | xargs npm run tslint --
+         
         env:
           NUM_JOBS: 5
           JOB: ${{ matrix.job }}
