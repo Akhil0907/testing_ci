@@ -18,6 +18,6 @@ jobs:
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
     - run: npm install
-    - run: npx cypress run --parallel
+    - run: $(npm bin)/cypress run
            #npm run e2e:record -- --parallel --group "tc"
     #- run: npx cypress run --parallel --record --key ebfde98d-2fc7-4d17-b2e9-e18e66ffd7f3
