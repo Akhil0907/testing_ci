@@ -26,6 +26,8 @@ jobs:
         with:
           record: true
           parallel: true
+      - run: npm install
+      - run: npx cypress run    
         env:
           # pass the Dashboard record key as an environment variable
           CYPRESS_RECORD_KEY: ebfde98d-2fc7-4d17-b2e9-e18e66ffd7f3
