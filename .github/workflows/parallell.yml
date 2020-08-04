@@ -17,7 +17,9 @@ jobs:
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
+      with:
+          parallel: true
     - run: npm install
-    - run: $(npm bin)/cypress run
+    - run: $(npm bin)/cypress run --parallel
            #npm run e2e:record -- --parallel --group "tc"
     #- run: npx cypress run --parallel --record --key ebfde98d-2fc7-4d17-b2e9-e18e66ffd7f3
