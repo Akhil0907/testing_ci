@@ -1,34 +1,52 @@
-name: Parallel Cypress Tests
+# .github/workflows/main.yaml
+name: Main
 
 on: [push]
 
 jobs:
-  test:
-    name: Cypress run
+  build:
     runs-on: ubuntu-latest
+
     strategy:
       fail-fast: false
       matrix:
-        ci_node_total: [3]
-        ci_node_index: [0, 1, 2]
+        node-version: [8.x]
+        # Set N number of parallel jobs you want to run tests on.
+        # Use higher number if you have slow tests to split them on more parallel jobs.
+        # Remember to update ci_node_index below to 0..N-1
+        ci_node_total: [5]
+        # set N-1 indexes for parallel jobs
+        # When you run 2 parallel jobs then first job will have index 0, the second job will have index 1 etc
+        ci_node_index: [0, 1, 2, 3, 4]
 
     steps:
-     - name: Extract branch name
-       shell: bash
-       run: echo "::set-env name=BRANCH_NAME::$(echo ${GITHUB_REF#refs/heads/} | sed 's/\//_/g')"
-      
-     - name: Test
-       run: echo "${BRANCH_NAME}"
-     - uses: actions/checkout@v2
-     - name: Use Node.js ${{ matrix.node-version }}
-       uses: actions/setup-node@v1
-       continue-on-error: true 
-       with:
-        record: true
-        parallel: true
-        group: 'test qa'
-     - run: npm install
-     - run: npm run build --if-present
-     - run: npx cypress run --config baseUrl=https://"${BRANCH_NAME}".com --parallel --record --key ebfde98d-2fc7-4d17-b2e9-e18e66ffd7f3
+      - uses: actions/checkout@v1
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: npm install and build --if-present
+        run: |
+          npm install --save-dev @knapsack-pro/cypress
+          npm install
+          npm run build --if-present
+
+      - name: Run http server with the app in the background
+        run: |
+          npm run start:ci &
+
+      - name: Run tests with Knapsack Pro
+        env:
+          KNAPSACK_PRO_TEST_SUITE_TOKEN_CYPRESS: 61466fe34e64f571325295b6b3fed253
+          KNAPSACK_PRO_CI_NODE_TOTAL: ${{ matrix.ci_node_total }}
+          KNAPSACK_PRO_CI_NODE_INDEX: ${{ matrix.ci_node_index }}
+          # allows rerun parallel jobs with the same set of tests
+          # that were consumed from Queue in the very first CI build run
+          KNAPSACK_PRO_FIXED_QUEUE_SPLIT: true
+        run: |
+          $(npm bin)/knapsack-pro-cypress --config baseUrl="${BRANCH_NAME}".com
+
      
     
