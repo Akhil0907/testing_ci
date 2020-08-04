@@ -52,7 +52,7 @@ jobs:
           # that were consumed from Queue in the very first CI build run
           KNAPSACK_PRO_FIXED_QUEUE_SPLIT: true
         run: |
-          $(npm bin)/knapsack-pro-cypress --config baseUrl="${BRANCH_NAME}".com
+          $(npm bin)/knapsack-pro-cypress --config baseUrl=https://"${BRANCH_NAME}".com
 
      
     
