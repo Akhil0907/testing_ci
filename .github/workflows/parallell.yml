@@ -6,7 +6,6 @@ jobs:
   test:
     name: Cypress run
     runs-on: ubuntu-latest
-    container: cypress/browsers:node12.13.0-chrome78-ff70
     strategy:
       fail-fast: false
       matrix:
@@ -22,4 +21,4 @@ jobs:
           parallel: true
           record: true
     - run: npm install
-    - run: npx cypress run --parallel --record --key ebfde98d-2fc7-4d17-b2e9-e18e66ffd7f3
+    - run: npx cypress run --browser chrome --parallel --record --key ebfde98d-2fc7-4d17-b2e9-e18e66ffd7f3
