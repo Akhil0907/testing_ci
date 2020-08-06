@@ -6,6 +6,7 @@ jobs:
   test:
     name: Cypress run
     runs-on: ubuntu-latest
+    container: cypress/browsers:node12.13.0-chrome78-ff70
     strategy:
       fail-fast: false
       matrix:
@@ -18,8 +19,6 @@ jobs:
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
-          browser: chrome
-          headless: true
           parallel: true
           record: true
     - run: npm install
