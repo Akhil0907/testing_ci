@@ -14,7 +14,7 @@ jobs:
 
     steps:
     - name: Test
-      run: echo "Cypress run competed on ${GITHUB_RUN_ID}"
+      run: echo "Cypress run competed on ${GITHUB_WORKFLOW}"
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }} 
       uses: actions/setup-node@v1
